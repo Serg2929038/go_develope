@@ -1,0 +1,4 @@
+replicaCount: 3
+
+ingress:
+  enabled: false

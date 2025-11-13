@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go_hello_service
+  labels:
+    app: go_hello_service
+spec:
+  selector:
+    app: go_hello
+  ports:
+    - port: 81
+      targetPort: 8080

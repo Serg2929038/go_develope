@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go_hello
+  labels:
+    app: go_hello
+spec:
+  replicas: {{ .values.replicaCount }}
+  selector:
+    matchLabels:
+      app: go_hello
+  template:
+    metadata:
+      labels:
+        app: go_hello
+    spec:
+      containers:
+      - name: go_hello
+        image: "git.gocommunity.ru/go-hello:{{ .Chart.AppVersion }}"
+        ports:
+        - containerPort: 8080
