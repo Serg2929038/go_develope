@@ -1,12 +1,12 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: go_hello_service
-  labels:
-    app: go_hello_service
+  name: sfedorov-my-go-server
 spec:
   selector:
-    app: go_hello
+    app: sfedorov-my-go-server
   ports:
-    - port: 81
-      targetPort: 8080
+  - port: 80
+    targetPort: 8083
+    nodePort: 30083
+  type: NodePort

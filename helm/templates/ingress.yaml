@@ -1,20 +1,17 @@
 {{- if .values.ingress.enabled -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: helloworld
-  namespace: default
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/group.name: default
-    alb.ingress.kubernetes.io/target-type: ip
+  name: sfedorov-my-go-server
 spec:
   rules:
   - http:
       paths:
-        - path: /*
-          backend:
-            serviceName: helloworld
-            servicePort: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sfedorov-my-go-server
+            port:
+              number: 80
 {{- end -}}
