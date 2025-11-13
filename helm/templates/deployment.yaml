@@ -17,7 +17,7 @@ spec:
         image: sfedorov-my-go-server:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8081
+        - containerPort: 8083
         resources:
           requests:
             memory: "64Mi"
