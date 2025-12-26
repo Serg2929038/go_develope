@@ -113,13 +113,13 @@ func task5() {
 	var a, b int
 	fmt.Scan(&a, &b)
 
-	fmt.Println(a + b)                            // сумма
-	fmt.Println(a - b)                            // разность
-	fmt.Println(float64(a) / float64(b))          // частное
-	fmt.Println(a * b)                            // произведение
-	fmt.Println(a / b)                            // целочисленное деление
-	fmt.Println(a % b)                            // остаток
-	fmt.Println(math.Pow(float64(a), float64(b))) // степень
+	fmt.Println(a + b)
+	fmt.Println(a - b)
+	fmt.Println(float64(a) / float64(b))
+	fmt.Println(a * b)
+	fmt.Println(a / b)
+	fmt.Println(a % b)
+	fmt.Println(math.Pow(float64(a), float64(b)))
 }
 
 func task6() {
@@ -179,7 +179,6 @@ func task11() {
 	}
 }
 
-// task12
 func task12() {
 	var unit int
 	var M, k float64
@@ -275,6 +274,7 @@ type Base struct {
 func (b *Base) GetName() string { return b.Name }
 func (b *Base) GetHP() int      { return b.HP }
 func (b *Base) IsAlive() bool   { return b.HP > 0 }
+
 func (b *Base) Heal(x int) {
 	b.HP += x
 	if b.HP > b.MaxHP {
@@ -287,7 +287,8 @@ func (b *Base) Damage(x int) {
 		b.HP = 0
 	}
 }
-func (b *Base) Strike() int      { return b.Attack }
+func (b *Base) Strike() int { return b.Attack }
+
 func (b *Base) SuperStrike() int { return b.Attack * 2 }
 
 type Warrior struct {
@@ -314,6 +315,7 @@ type Character interface {
 }
 
 func (w *Warrior) Damage(x int) { w.Base.Damage(x - x*w.Armor/100) }
+
 func (m *Mage) SuperStrike() int {
 	if m.Mana >= 10 {
 		m.Mana -= 10
@@ -321,6 +323,7 @@ func (m *Mage) SuperStrike() int {
 	}
 	return m.Attack * 2
 }
+
 func (a *Archer) Strike() int { return a.Attack + a.Agility/5 }
 
 func fight(a, b Character) {
@@ -348,7 +351,6 @@ func task16() {
 	fight(p1, p2)
 }
 
-// task17
 func task17() {
 	allUsers := []string{"id3", "id5", "id9", "id8", "id2", "id1", "id4", "id6", "id7", "id10"}
 	offline := []string{"id3", "id9", "id7", "id2", "id4", "id6"}
@@ -364,7 +366,6 @@ func task17() {
 	}
 }
 
-// task18
 func task18() {
 	books := []string{"id3", "id5", "id9", "id8", "id2", "id1"}
 	mags := []string{"id8", "id2", "id1", "id4", "id6", "id7", "id10"}
